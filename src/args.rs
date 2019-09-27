@@ -11,7 +11,7 @@ pub enum Args {
 #[derive(StructOpt)]
 pub struct SpawnArgs {
     #[structopt(long, short)]
-    pub no_parent: bool,
+    pub with_parent: bool,
     pub template_name: String,
     pub target_path: Option<PathBuf>,
 }
