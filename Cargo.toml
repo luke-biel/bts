@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 structopt = "0.3.2"
 serde     = "1.0.101"
+dirs      = "2.0.2"

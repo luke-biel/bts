@@ -11,13 +11,13 @@ pub enum Args {
 #[derive(StructOpt)]
 pub struct SpawnArgs {
     #[structopt(long, short)]
-    pub raw: bool,
-    pub name: String,
-    pub target: Option<PathBuf>,
+    pub no_parent: bool,
+    pub template_name: String,
+    pub target_path: Option<PathBuf>,
 }
 
 #[derive(StructOpt)]
 pub struct RegisterArgs {
-    pub name: String,
+    pub template_name: String,
     pub path: PathBuf,
 }
