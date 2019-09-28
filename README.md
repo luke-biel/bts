@@ -1,12 +1,14 @@
-# basic templater ![build status](https://travis-ci.com/luke-biel/bt.svg?branch=master)
+# basic templates ![build status](https://travis-ci.com/luke-biel/bt.svg?branch=master)
 
 Tool that allows you to store commonly used files and spawn them on demand in desired location (think sample configs, new projects etc.).
 Currently tested only on OSX.
 
 ## Installation
 
-Download binary or compile from source.  
-Place in `/usr/local/bin`.
+`cargo install bts`  
+or  
+Download binary/compile from source.  
+Place in `/usr/local/bin`.  
 You are set to go.
 
 ## Usage
