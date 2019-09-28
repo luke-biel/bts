@@ -1,6 +1,14 @@
 language: rust
+before_script:
+   - rustup component add rustfmt
+   - rustup component add clippy
 rust:
-   - nightly-2019-09-26
+   - stable
+   - beta
+   - nightly
+script:
+   - cargo clippy --all-targets --all-features -- -D warnings
+   - cargo fmt --all -- --check
 deploy:
    provider: releases
    api_key: $GITHUB_OAUTH_TOKEN
