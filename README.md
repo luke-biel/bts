@@ -44,7 +44,7 @@ bt 0.1.0
 Templates can be stored in sub folders, eg:  
 `bt new cargo/web_app .`
 
-###`bt register`
+### `bt register`
 #### To create template from all files in current directory:  
 `bt register template_name .`  
 or  
