@@ -3,10 +3,10 @@
 use std::path::PathBuf;
 use structopt::StructOpt;
 
-const TEMPLATE_FOLDER_NAME: &str = ".bt";
+const TEMPLATE_FOLDER_NAME: &str = ".bts";
 
 #[derive(StructOpt)]
-#[structopt(name = "bt", about = "Automatic template file generator.")]
+#[structopt(name = "bts", about = "Automatic template file generator.")]
 pub struct Args {
     #[structopt(env = "BT_HOME", default_value = Self::default_template_folder())]
     pub config_location: PathBuf,

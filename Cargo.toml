@@ -1,13 +1,13 @@
 [package]
-name = "bt"
+name = "bts"
 version = "0.1.0"
 authors = ["Łukasz Biel <lukasz.p.biel@gmail.com>"]
 edition = "2018"
 description = "application to spawn template files"
 license-file = "LICENSE"
-documentation = "https://github.com/luke-biel/bt"
-homepage = "https://github.com/luke-biel/bt"
-repository = "https://github.com/luke-biel/bt"
+documentation = "https://github.com/luke-biel/bts"
+homepage = "https://github.com/luke-biel/bts"
+repository = "https://github.com/luke-biel/bts"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
