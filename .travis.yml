@@ -8,6 +8,8 @@ script:
    - cargo test --all
    - cargo clippy --all-targets --all-features -- -D warnings
    - cargo fmt --all -- --check
+
+before_deploy:
    - cargo build --release
 
 deploy:
