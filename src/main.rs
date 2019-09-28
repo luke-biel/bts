@@ -62,7 +62,10 @@ fn register(args: RegisterArgs, config_location: PathBuf) -> Result<(), Error> {
 
     let metadata = std::fs::metadata(&args.path).map_err(Error::Lookup)?;
     if metadata.is_file() {
-        let filename = args.path.file_name().ok_or(Error::Other(Box::new("unable to retrieve filename")))?;
+        let filename = args
+            .path
+            .file_name()
+            .ok_or_else(|| Error::Other(Box::new("unable to retrieve filename")))?;
 
         std::fs::create_dir_all(&target).map_err(Error::CopyError)?;
         std::fs::copy(&args.path, &target.join(filename)).map_err(Error::CopyError)?;
