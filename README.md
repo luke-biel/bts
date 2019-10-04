@@ -1,4 +1,4 @@
-# basic templates ![build status](https://travis-ci.com/luke-biel/bt.svg?branch=master)
+# basic templates ![build status](https://travis-ci.com/luke-biel/bts.svg?branch=master)
 
 Tool that allows you to store commonly used files and spawn them on demand in desired location (think sample configs, new projects etc.).
 Currently tested only on OSX.
