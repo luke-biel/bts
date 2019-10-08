@@ -1,6 +1,6 @@
 //! Command line utility to create simple file snippets available to be instantiated at any time in future
 //!
-//! It allows to *register* and **spawn** snippets at will
+//! It allows to **register** and **spawn** snippets at will
 //!
 //! # Installation
 //! `cargo install bts`
