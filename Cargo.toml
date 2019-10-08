@@ -1,73 +1,111 @@
 [package]
 name = "bts"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Łukasz Biel <lukasz.p.biel@gmail.com>"]
 edition = "2018"
 description = """
-# basic templater ![build status](https://travis-ci.com/luke-biel/bt.svg?branch=master)
+[![Build Status](https://travis-ci.org/luke-biel/bts.svg?branch=master)](https://travis-ci.org/luke-biel/bts)
 
-Tool that allows you to store commonly used files and spawn them on demand in desired location (think sample configs, new projects etc.).
-Currently tested only on OSX.
+# bts
+
+Command line utility to create simple file snippets available to be instantiated at any time in future
+
+It allows to *register* and **spawn** snippets at will
 
 ## Installation
-
-Download binary or compile from source.
-Place in `/usr/local/bin`.
-You are set to go.
+`cargo install bts`
 
 ## Usage
+### NEW
+Instantiate copy of an existing snippet
 
+`bts new SOURCE [DESTINATION] [-w/--with-parent] [-m/--max-depth _]`
+
+#### **SOURCE**
+- is snippet name.
+
+It's good idea to remember that for the time being snippets are stored in directories.
+Therefore nesting is allowed and advised.
+For example,
+`config/mysql`, `config/psql`, `config/sqlite` are good examples of template names
+and
+`config_mysql`, `config_psql`, `config_sqlite` are, while correct, discouraged.
+But hey, these are your snippets. Consider it only to be an advice.
+
+#### **DESTINATION**
+- is target folder name
+
+Place where you want to instantiate a snippet. By default `pwd` is used.
+
+#### **WITH-PARENT**
+- defines whether folder should be spawned preserving snippet name
+
+This means that `bts basic/template01 -w` will spawn files in `./basic/template01/` instead of `.`
+
+#### **MAX-DEPTH**
+- how deep the copy should go
+
+Copies snippet only until given depth is reached in directory tree.
+For example,
 ```
-bts 0.1.0
-  Automatic template file generator.
+basic/template01/
+                |- file.txt
+                |-/ subdir
 
-  USAGE:
-      bts [config-location] <SUBCOMMAND>
-
-  FLAGS:
-      -h, --help       Prints help information
-      -V, --version    Prints version information
-
-  ARGS:
-      <config-location>     [env: BT_HOME=]  [default: /Users/lukaszbiel/.bts]
-
-  SUBCOMMANDS:
-      help        Prints this message or the help of the given subcommand(s)
-      new
-      register
+bts basic/template01 -m 1
 ```
-### `bts new`
-#### To instantiate prepared template:
-`bts new template_name`
+will produce only file.txt in current directory.
+This parameter accepts numbers in range 0..255, default value is 32.
 
-#### To instantiate prepared template at desired location:
-`bts new template_name tests/acceptance/new_test`
+### Register
+Create new snippet from files
 
-#### Additional flags
-`new` command allows to specify `--max-depth` parameter when templates are folders with deep files tree.
-`--with-parent` flag controls if you want to keep folder structure of template when copying files; think - it will add `template_name/file.txt` instead of `file.txt`
+`bts register TEMPLATE_NAME SOURCE [-a/--append] [-m/--max-depth]`
 
-Templates can be stored in sub folders, eg:
-`bts new cargo/web_app .`
+#### **TEMPLATE_NAME**
+- is snippet name
 
-### `bts register`
-#### To create template from all files in current directory:
-`bts register template_name .`
-or
-`bts register template_name file.txt`
-to create template from given file.
-This command removes anything that existed previously as `template_name`
+It clears previous snippets stored at given namespace, so calling `bts basic .` will also remove `basic/template01`.
 
-#### To append a file to an existing template:
-`bts register template_name . -a`
+#### **SOURCE**
+- is a path to snippet files
 
-#### Additional flags
-`register` command allows to specify `--max-depth` same as new.
+When **SOURCE** is a file, this file will be stored at snippet namespace.
+When **SOURCE** is a directory, all contents of that directory will be stored at snippet namespace.
+
+#### **APPEND**
+- defines whether we want to append to existing snippet
+
+This allows to create snippet only from selected files in directory.
+
+#### **MAX-DEPTH**
+- defines how deep should `bts` search for files when creating a snippet.
+
+Accepts numbers between 0 and 255, default value is 32.
+
+## Contribution
+I may accept new features, but that will only happen if I can see that it's useful.
+It's better to create issue at github before attempting to implement something.
+Bug fixes are always welcome.
+You can look into `.travis.yml` for build steps, but tldr is that I will merge only features that pass
+`cargo clippy --all-targets --all-features -- -D warnings`
+and
+`cargo fmt --all -- --check`
+
+## TBD
+* test coverage
+* default snippets (sample rust projects etc.)
+* pass-through for selected applications (eg. `bts spawn cargo/bin` calls `cargo new --bin`)
+
+License: MIT
 """
 license = "MIT"
 documentation = "https://github.com/luke-biel/bts"
 homepage = "https://github.com/luke-biel/bts"
 repository = "https://github.com/luke-biel/bts"
+
+[badges]
+travis-ci = { repository = "luke-biel/bts", branch = "master" }
 
 [dependencies]
 structopt = "0.3.2"
