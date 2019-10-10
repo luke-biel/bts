@@ -14,6 +14,6 @@ repository = "https://github.com/luke-biel/bts"
 travis-ci = { repository = "luke-biel/bts", branch = "master" }
 
 [dependencies]
-structopt = "0.3.2"
+structopt = "0.3.3"
 serde     = "1.0.101"
 dirs      = "2.0.2"
