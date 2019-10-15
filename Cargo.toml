@@ -17,7 +17,7 @@ travis-ci = { repository = "luke-biel/bts", branch = "master" }
 doctest = false
 
 [dependencies]
-structopt = { version = "0.3.2", default-features = false }
+structopt = { version = "0.3.3", default-features = false }
 dirs      = "2.0.2"
 
 [dev-dependencies]
