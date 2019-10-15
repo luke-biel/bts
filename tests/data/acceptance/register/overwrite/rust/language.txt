@@ -1,0 +1,2 @@
+Rust is a multi-paradigm system programming language focused on safety, especially safe concurrency.
+Rust is syntactically similar to C++, but is designed to provide better memory safety while maintaining high performance.

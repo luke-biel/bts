@@ -10,7 +10,7 @@ const TEMPLATE_FOLDER_NAME: &str = ".bts";
 /// Generate file snippets at will
 pub struct Args {
     #[structopt(env = "BT_HOME", default_value = Self::default_template_folder())]
-    /// Location of snippets storage, default path is `~/.bt/templates` for osx and linux and `%HOME%\bt\templates` for windows
+    /// Location of snippets storage
     pub config_location: PathBuf,
     #[structopt(flatten)]
     pub command: Command,
@@ -24,7 +24,7 @@ pub enum Command {
     Register(RegisterArgs),
 }
 
-#[derive(StructOpt)]
+#[derive(StructOpt, Default)]
 pub struct NewArgs {
     #[structopt(long, short)]
     /// Spawn with whole path leading to given snippet
@@ -38,12 +38,12 @@ pub struct NewArgs {
     pub max_depth: u8,
 }
 
-#[derive(StructOpt)]
+#[derive(StructOpt, Default)]
 pub struct RegisterArgs {
     /// New snippet name
     pub template_name: String,
     /// Path to single file or directory from which contents new snippet should be created
-    pub path: PathBuf,
+    pub target_path: PathBuf,
     #[structopt(long, short)]
     /// Don't delete previous snippet when creating new one, only append
     pub append: bool,
@@ -55,6 +55,8 @@ pub struct RegisterArgs {
 impl Args {
     pub fn default_template_folder() -> &'static str {
         match dirs::home_dir() {
+            // This is not looking nice, but program is anyway short-lived and
+            // by making it static this way we avoid adding lazy-static crate dependency
             Some(dir) => Box::leak(Box::new(dir.join(TEMPLATE_FOLDER_NAME)))
                 .to_str()
                 .expect("Couldn't convert to str"),

@@ -13,7 +13,13 @@ repository = "https://github.com/luke-biel/bts"
 [badges]
 travis-ci = { repository = "luke-biel/bts", branch = "master" }
 
+[lib]
+doctest = false
+
 [dependencies]
-structopt = "0.3.3"
-serde     = "1.0.101"
+structopt = { version = "0.3.3", default-features = false }
 dirs      = "2.0.2"
+
+[dev-dependencies]
+test-case = "0.3.3"
+twox-hash = "1.5.0"
