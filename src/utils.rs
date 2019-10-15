@@ -9,7 +9,8 @@ pub fn copy_dir_contents(
     depth: u8,
     max_depth: u8,
 ) -> Result<(), Error> {
-    if depth > max_depth {
+    let mut from = from.peekable();
+    if depth >= max_depth || from.peek().is_none() {
         return Ok(());
     }
 
