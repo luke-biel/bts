@@ -46,7 +46,7 @@ basic/template01/
                 |- file.txt
                 |-/ subdir
 
-bts basic/template01 -m 1
+bts new basic/template01 -m 1
 ```
 will produce only file.txt in current directory.
 This parameter accepts numbers in range 0..255, default value is 32.
@@ -89,6 +89,6 @@ and
 ## TBD
 * test coverage
 * default snippets (sample rust projects etc.)
-* pass-through for selected applications (eg. `bts spawn cargo/bin` calls `cargo new --bin`
+* pass-through for selected applications (eg. `bts spawn cargo/bin` calls `cargo new --bin`)
 
 License: MIT

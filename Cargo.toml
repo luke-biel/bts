@@ -1,6 +1,6 @@
 [package]
 name = "bts"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Łukasz Biel <lukasz.p.biel@gmail.com>"]
 edition = "2018"
 description = "Simple template spawner"
@@ -13,8 +13,14 @@ repository = "https://github.com/luke-biel/bts"
 [badges]
 travis-ci = { repository = "luke-biel/bts", branch = "master" }
 
+[[bin]]
+doctest = false
+path = "src/main.rs"
+name = "bts"
+
 [lib]
 doctest = false
+path = "src/lib.rs"
 
 [dependencies]
 structopt = { version = "0.3.3", default-features = false }
