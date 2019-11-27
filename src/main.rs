@@ -90,8 +90,8 @@
 use structopt::StructOpt;
 
 use bts::args::{Args, Command};
-use bts::{new, register};
 use bts::error::Error;
+use bts::{new, register};
 
 fn main() -> Result<(), Error> {
     let args: Args = Args::from_args();
