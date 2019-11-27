@@ -1,5 +1,5 @@
 pub mod args;
-mod error;
+pub mod error;
 mod utils;
 
 use crate::args::{NewArgs, RegisterArgs};
@@ -32,7 +32,7 @@ const TEMPLATE_FOLDER: &str = "templates";
 pub fn new<P: AsRef<Path>>(args: NewArgs, config_location: P) -> Result<(), Error> {
     let target = args
         .target_path
-        .unwrap_or(std::env::current_dir().map_err(|e| Error::Other(Box::new(e)))?);
+        .unwrap_or(std::env::current_dir().map_err(Error::Lookup)?);
     let template: PathBuf = config_location
         .as_ref()
         .join(TEMPLATE_FOLDER)
@@ -43,7 +43,7 @@ pub fn new<P: AsRef<Path>>(args: NewArgs, config_location: P) -> Result<(), Erro
         .peekable();
 
     if dir.peek().is_none() {
-        return Err(Error::Other(Box::new("cannot instantiate empty template")));
+        return Err(Error::EmptyDirectory);
     } else {
         let target = if args.with_parent {
             target.join(&args.template_name)
@@ -89,7 +89,7 @@ pub fn register<P: AsRef<Path>>(args: RegisterArgs, config_location: P) -> Resul
         let filename = args
             .target_path
             .file_name()
-            .ok_or_else(|| Error::Other(Box::new("unable to retrieve filename")))?;
+            .ok_or_else(|| Error::MissingFilename)?;
 
         std::fs::create_dir_all(&target).map_err(Error::CopyError)?;
         std::fs::copy(&args.target_path, &target.join(filename)).map_err(Error::CopyError)?;

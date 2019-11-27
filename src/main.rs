@@ -91,16 +91,13 @@ use structopt::StructOpt;
 
 use bts::args::{Args, Command};
 use bts::{new, register};
+use bts::error::Error;
 
-fn main() {
+fn main() -> Result<(), Error> {
     let args: Args = Args::from_args();
 
-    let result = match args.command {
+    match args.command {
         Command::New(spawn_args) => new(spawn_args, args.config_location),
         Command::Register(register_args) => register(register_args, args.config_location),
-    };
-
-    if let Err(e) = result {
-        println!("Critical error occurred!\n{:?}", e);
     }
 }
