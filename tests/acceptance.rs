@@ -2,18 +2,19 @@
 
 mod utils;
 
-use crate::utils::{compare_paths, tear_down, test_path, tmp_path};
+use crate::utils::{tear_down, test_path, tmp_path};
 use bts::args::{NewArgs, RegisterArgs};
 use bts::{new, register};
 use std::path::PathBuf;
 
 mod new {
     use super::*;
+    use dir_assert::assert_paths;
     use test_case::test_case;
 
     #[test_case(false, "file_example",        "file_example",               1; "single file is copied to destination")]
     #[test_case(false, "multi_file_example",  "multi_file_example",         1; "multiple files are copied to destination")]
-    #[test_case(false, "wiki/cinematography", "deep_copy_example",          1; "files are copied from subfolders")]
+    #[test_case(false, "wiki/cinematography", "deep_copy_example",          1; "files are copied from sub folders")]
     #[test_case(true,  "wiki",                "deep_copy_w_parent_example", 2; "files are copied preserving directory path")]
     #[test_case(false, "literature",          "max_depth_limit_example",    1; "files are copied up to selected depth")]
     fn acceptance(with_parent: bool, template_name: &str, target_name: &str, max_depth: u8) {
@@ -29,33 +30,27 @@ mod new {
 
         new(new_args, config_location.clone()).expect("new");
 
-        let test_result = compare_paths(
-            PathBuf::from("tests")
-                .join("data")
-                .join("expected")
-                .join("new")
-                .join(target_name),
-            target_path.clone(),
-        );
+        let actual_path = PathBuf::from("tests")
+            .join("data")
+            .join("expected")
+            .join("new")
+            .join(target_name);
+
+        assert_paths!(actual_path, target_path.clone());
 
         tear_down(target_path);
-
-        assert!(
-            !test_result.result,
-            "\nfile mismatch:\n{:#?}\n",
-            test_result.errors
-        );
     }
 }
 
 mod register {
     use super::*;
+    use dir_assert::assert_paths;
     use test_case::test_case;
 
     #[test_case(false, "islands",               "single_file",     "easter_island.txt", 1; "can create template out of single file")]
     #[test_case(false, "ships",                 "whole_directory", ".",                 1; "can create template out of multiple files")]
     #[test_case(false, "programming_languages", "overwrite",       "rust,c_plus_plus",  1; "overwrites previous template")]
-    #[test_case(true,  "animals/domestic",      "append",          "cats.txt,dogs", 1; "appends to existing template")]
+    #[test_case(true,  "animals/domestic",      "append",          "cats.txt,dogs",     1; "appends to existing template")]
     fn acceptance(
         append: bool,
         template_name: &str,
@@ -81,20 +76,13 @@ mod register {
             register(register_args, config_location.clone()).expect("register");
         }
 
-        let test_result = compare_paths(
-            PathBuf::from("tests")
-                .join("data")
-                .join("expected")
-                .join("register")
-                .join(target_name),
-            config_location.clone(),
-        );
+        let actual_path = PathBuf::from("tests")
+            .join("data")
+            .join("expected")
+            .join("register")
+            .join(target_name);
 
-        assert!(
-            !test_result.result,
-            "\nfile mismatch:\n{:#?}\n",
-            test_result.errors
-        );
+        assert_paths!(actual_path, config_location.clone());
 
         tear_down(config_location);
     }

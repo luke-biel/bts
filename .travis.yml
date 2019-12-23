@@ -1,9 +1,15 @@
+os:
+   - linux
+   - windows
+   - osx
 language: rust
 before_script:
    - rustup component add rustfmt
    - rustup component add clippy
 rust:
    - stable
+   - beta
+   - nightly
 script:
    - cargo test --all
    - cargo clippy --all-targets --all-features -- -D warnings
@@ -11,13 +17,27 @@ script:
 
 before_deploy:
    - cargo build --release
+   - cargo doc --no-deps
+   - echo "<meta http-equiv=refresh content=0;url=`echo $TRAVIS_REPO_SLUG | cut -d '/' -f 2 | tr '-' '_'`/index.html>" > target/doc/index.html
+
 
 deploy:
-   provider: releases
-   api_key: $GITHUB_OAUTH_TOKEN
-   file: "target/release/bts"
-   skip_cleanup: true
-   on:
-      branch: master
-      tags: true
-      rust: stable
+   - provider: releases
+      api_key: $GITHUB_OAUTH_TOKEN
+      file: "target/release/bts"
+      skip_cleanup: true
+      on:
+         branch: master
+         tags: true
+         rust: stable
+         condition: $TRAVIS_OS_NAME == "linux"
+   - provider: pages
+      local_dir: target/doc
+      token: $GITHUB_OAUTH_TOKEN
+      skip_cleanup: true
+      keep_history: true
+      on:
+         branch: master
+         rust: stable
+         tags: true
+         condition: $TRAVIS_OS_NAME == "linux"
