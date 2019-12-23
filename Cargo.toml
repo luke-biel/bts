@@ -1,12 +1,12 @@
 [package]
 name = "bts"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Łukasz Biel <lukasz.p.biel@gmail.com>"]
 edition = "2018"
 description = "Simple template spawner"
 readme = "README.md"
 license = "MIT"
-documentation = "https://github.com/luke-biel/bts"
+documentation = "https://luke-biel.github.io/bts"
 homepage = "https://github.com/luke-biel/bts"
 repository = "https://github.com/luke-biel/bts"
 
