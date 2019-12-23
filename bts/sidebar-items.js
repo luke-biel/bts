@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["new","Instantiate snippet at given location"],["register","Register a new snippet"]],"mod":[["args",""],["error",""]]});

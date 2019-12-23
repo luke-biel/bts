@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Command",""]],"struct":[["Args","Generate file snippets at will"],["NewArgs",""],["RegisterArgs",""]]});
