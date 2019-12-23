@@ -83,7 +83,7 @@
 //! `cargo fmt --all -- --check`
 //!
 //! # TBD
-//! * test coverage
+//! * provide GUI for the app (?)
 //! * default snippets (sample rust projects etc.)
 //! * pass-through for selected applications (eg. `bts spawn cargo/bin` calls `cargo new --bin`)
 
