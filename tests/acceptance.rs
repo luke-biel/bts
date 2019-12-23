@@ -28,7 +28,7 @@ mod new {
             max_depth,
         };
 
-        new(new_args, config_location.clone()).expect("new");
+        new(new_args, config_location).expect("new");
 
         let actual_path = PathBuf::from("tests")
             .join("data")
