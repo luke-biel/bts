@@ -22,22 +22,13 @@ before_deploy:
 
 
 deploy:
-   - provider: releases
-      api_key: $GITHUB_OAUTH_TOKEN
-      file: "target/release/bts"
-      skip_cleanup: true
-      on:
-         branch: master
-         tags: true
-         rust: stable
-         condition: $TRAVIS_OS_NAME == "linux"
-   - provider: pages
-      local_dir: target/doc
-      token: $GITHUB_OAUTH_TOKEN
-      skip_cleanup: true
-      keep_history: true
-      on:
-         branch: master
-         rust: stable
-         tags: true
-         condition: $TRAVIS_OS_NAME == "linux"
+   provider: pages
+   local_dir: target/doc
+   token: $GITHUB_OAUTH_TOKEN
+   skip_cleanup: true
+   keep_history: true
+   on:
+      branch: master
+      rust: stable
+      tags: true
+      condition: $TRAVIS_OS_NAME == "linux"
