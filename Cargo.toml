@@ -28,4 +28,4 @@ dirs      = "2.0.2"
 
 [dev-dependencies]
 test-case = "1.0.0"
-dir-assert = "0.1.0"
+dir-assert = "0.2.0"

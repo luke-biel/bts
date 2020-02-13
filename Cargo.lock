@@ -57,7 +57,7 @@ dependencies = [
 name = "bts"
 version = "0.2.2"
 dependencies = [
- "dir-assert 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "dir-assert 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "dirs 2.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "structopt 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
  "test-case 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -112,7 +112,7 @@ dependencies = [
 
 [[package]]
 name = "dir-assert"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -419,7 +419,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum cloudabi 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "ddfc5b9aa5d4507acaf872de71051dfd0e309860e88966e1051e462a077aac4f"
 "checksum constant_time_eq 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "995a44c877f9212528ccc74b21a232f66ad69001e40ede5bcee2ac9ef2657120"
 "checksum crossbeam-utils 0.6.6 (registry+https://github.com/rust-lang/crates.io-index)" = "04973fa96e96579258a5091af6003abde64af786b860f18622b82e026cca60e6"
-"checksum dir-assert 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "404ee97706d33b5adb5746462cd114817932b990875bd7e6de90ccc2725805ec"
+"checksum dir-assert 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "52079f51e329f84f2895c4752455296d9a2dab76d7af51fc7b026f05889b1899"
 "checksum dirs 2.0.2 (registry+https://github.com/rust-lang/crates.io-index)" = "13aea89a5c93364a98e9b37b2fa237effbb694d5cfe01c5b70941f7eb087d5e3"
 "checksum dirs-sys 0.3.4 (registry+https://github.com/rust-lang/crates.io-index)" = "afa0b23de8fd801745c471deffa6e12d248f962c9fd4b4c33787b055599bde7b"
 "checksum failure 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)" = "f8273f13c977665c5db7eb2b99ae520952fe5ac831ae4cd09d80c4c7042b5ed9"
