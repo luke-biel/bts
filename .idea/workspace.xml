@@ -13,10 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ce2e27c-9d1e-4cc5-864d-8e8271f7f15a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/args.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/args.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/acceptance.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/acceptance.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +64,41 @@
     <option name="myCommands">
       <command value="cargo test" />
       <command value="cargo test can_create_template_out_of_multiple_files" />
+      <command value="cargo clippy" />
+      <command value="cargo fmt" />
+      <command value="cargo fmt --all -- --check" />
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.test">
+  <component name="RunManager" selected="Cargo Command.fmt">
     <configuration name="Test register::acceptance" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="test --package bts --test acceptance register::acceptance -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clippy" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="clippy" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fmt" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="fmt --all -- --check" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -97,10 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo Command.test" />
-        <item itemvalue="Cargo Command.test" />
-        <item itemvalue="Cargo Command.Test register::acceptance" />
-        <item itemvalue="Cargo Command.test" />
+        <item itemvalue="Cargo Command.fmt" />
+        <item itemvalue="Cargo Command.fmt" />
+        <item itemvalue="Cargo Command.fmt" />
+        <item itemvalue="Cargo Command.clippy" />
+        <item itemvalue="Cargo Command.clippy" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +145,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584615866285</updated>
-      <workItem from="1584615867617" duration="5694000" />
+      <workItem from="1584615867617" duration="5936000" />
     </task>
     <servers />
   </component>
@@ -133,30 +161,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584616022289" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584623201986">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584623865937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623201986" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584623201985">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623865937" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584623865937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623201985" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584623201985">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623865937" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584623865937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623201985" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584623201986">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623865937" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584623865937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623201986" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623865937" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1584616988279">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584616988279" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1584623522197">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1584623865922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623522197" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/1920.11.1440.860@0.0.1920.1040" timestamp="1584623865922" />
     <state x="623" y="225" width="672" height="676" key="search.everywhere.popup" timestamp="1584617442303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
