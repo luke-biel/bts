@@ -1,5 +1,8 @@
+#[deny(missing_docs)]
+
 pub mod args;
 pub mod error;
+pub mod template_name;
 mod utils;
 
 use crate::args::{NewArgs, RegisterArgs};
@@ -36,7 +39,7 @@ pub fn new<P: AsRef<Path>>(args: NewArgs, config_location: P) -> Result<(), Erro
     let template: PathBuf = config_location
         .as_ref()
         .join(TEMPLATE_FOLDER)
-        .join(&args.template_name);
+        .join(&args.template_name.normalized());
 
     let mut dir = std::fs::read_dir(template)
         .map_err(Error::Lookup)?
@@ -46,7 +49,7 @@ pub fn new<P: AsRef<Path>>(args: NewArgs, config_location: P) -> Result<(), Erro
         return Err(Error::EmptyDirectory);
     } else {
         let target = if args.with_parent {
-            target.join(&args.template_name)
+            target.join(&args.template_name.normalized())
         } else {
             target
         };
@@ -78,7 +81,7 @@ pub fn register<P: AsRef<Path>>(args: RegisterArgs, config_location: P) -> Resul
     let target = config_location
         .as_ref()
         .join(TEMPLATE_FOLDER)
-        .join(args.template_name);
+        .join(&args.template_name.normalized());
 
     if !args.append && target.exists() {
         std::fs::remove_dir_all(&target).map_err(Error::CopyError)?;

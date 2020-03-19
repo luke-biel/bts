@@ -23,7 +23,7 @@ mod new {
 
         let new_args = NewArgs {
             with_parent,
-            template_name: template_name.to_string(),
+            template_name: template_name.into(),
             target_path: Some(target_path.clone()),
             max_depth,
         };
@@ -48,7 +48,7 @@ mod register {
     use test_case::test_case;
 
     #[test_case(false, "islands",               "single_file",     "easter_island.txt", 1; "can create template out of single file")]
-    #[test_case(false, "ships",                 "whole_directory", ".",                 1; "can create template out of multiple files")]
+    #[test_case(false, "ships",                 "whole_directory", "",                 1; "can create template out of multiple files")]
     #[test_case(false, "programming_languages", "overwrite",       "rust,c_plus_plus",  1; "overwrites previous template")]
     #[test_case(true,  "animals/domestic",      "append",          "cats.txt,dogs",     1; "appends to existing template")]
     fn acceptance(
@@ -68,7 +68,7 @@ mod register {
 
             let register_args = RegisterArgs {
                 append,
-                template_name: template_name.to_string(),
+                template_name: template_name.into(),
                 target_path: partial_path.clone(),
                 max_depth,
             };
