@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Command",""]],"struct":[["Args","Generate file snippets at will"],["NewArgs",""],["RegisterArgs",""]]});
+initSidebarItems({"enum":[["Command","All available commands in an app"]],"struct":[["Args","Generate file snippets at will"],["NewArgs","Arguments necessary to spawn a snippet"],["RegisterArgs","Arguments necessary to create new snippet"]]});

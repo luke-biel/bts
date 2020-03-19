@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["new","Instantiate snippet at given location"],["register","Register a new snippet"]],"mod":[["args",""],["error",""]]});
+initSidebarItems({"fn":[["new","Instantiate snippet at given location"],["register","Register a new snippet"]],"mod":[["args","Data representation of args passable to the app"],["error",""],["template_name",""]]});
