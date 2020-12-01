@@ -23,7 +23,7 @@ doctest = false
 path = "src/lib.rs"
 
 [dependencies]
-structopt = { version = "0.3.20", default-features = false }
+structopt = { version = "0.3.21", default-features = false }
 dirs      = "3.0.1"
 
 [dev-dependencies]
