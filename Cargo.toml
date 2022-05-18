@@ -27,5 +27,5 @@ structopt = { version = "0.3.26", default-features = false }
 dirs      = "4.0.0"
 
 [dev-dependencies]
-test-case = "2.0.2"
+test-case = "2.1.0"
 dir-assert = "0.2.0"
